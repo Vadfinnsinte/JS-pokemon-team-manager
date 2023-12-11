@@ -1,0 +1,33 @@
+
+.display-poke {
+	display: none;
+	justify-content: center;
+}
+.display-poke.alt {
+	display: grid;
+}
+
+.pokemon-search-div {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	border: 2px solid black;
+	margin: 0.5em;
+	padding: 1em;
+	max-width: 70vw;
+	/* justify-content: center; */
+}
+.add-to-team-btn {
+	width: 15vw;
+
+}
+@media (min-width: 500px) {
+	.display-poke {
+		grid-template-columns: repeat(2, 1fr);
+		
+	}
+	.pokemon-search-div {
+		max-width: 50vw;
+	}
+
+
+}

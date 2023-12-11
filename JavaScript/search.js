@@ -1,4 +1,4 @@
-import { collectAPI, searchPokemon } from "./ajax.js";
+import { collectAPI, searchPokemonAndAdd } from "./ajax.js";
 
 collectAPI()
-searchPokemon()
+searchPokemonAndAdd()

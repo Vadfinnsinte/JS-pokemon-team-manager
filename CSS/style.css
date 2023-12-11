@@ -20,7 +20,7 @@ body {
 	display: flex;
 	justify-content: space-around;
 	background-color: rgb(209, 184, 45);
-	width: 100vw;
+	/* width: 100vw; */
 	color: rgb(133, 63, 38);
 	font-weight: 600;
 }
