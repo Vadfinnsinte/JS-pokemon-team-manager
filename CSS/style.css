@@ -7,9 +7,16 @@ body {
 	padding: 0;
 	font-family: 'Montserrat', sans-serif;
 }
-
+.search-bar {
+	margin: 2em 0 0 1em;
+	padding: 0.2em;
+	visibility: hidden;
+}
+.search-bar.alt {
+	visibility: visible;
+}
 .header {
-	margin-top: 3.5em;
+	margin-top: 1em;
 	display: flex;
 	justify-content: space-around;
 	background-color: rgb(209, 184, 45);
@@ -17,12 +24,15 @@ body {
 	color: rgb(133, 63, 38);
 	font-weight: 600;
 }
-.header > p {
+.header > p, .search-btn {
 	border: 2px solid rgb(156, 91, 31);
 	padding: 0.5em;
 	margin-top: 0.3em;
 	margin-bottom: 0.3em;
-
+}
+.search-btn.alt {
+	box-shadow: inset 3px 3px 3px rgb(145, 85, 29);
+	color: rgb(151, 107, 65);
 }
 
 .pokeboll {
