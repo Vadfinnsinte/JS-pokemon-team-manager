@@ -1,0 +1,9 @@
+.display-my-poke {
+	display: none;
+}
+
+.display-my-poke.alt {
+	display: grid;
+	justify-content: center;
+}
+

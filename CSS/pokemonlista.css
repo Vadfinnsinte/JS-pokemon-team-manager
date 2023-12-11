@@ -7,17 +7,17 @@
 	display: grid;
 }
 
-.pokemon-search-div {
+.pokemon-search-div,.display-my-poke > * {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	border: 2px solid black;
 	margin: 0.5em;
 	padding: 1em;
-	max-width: 70vw;
+	max-width: 80vw;
 	/* justify-content: center; */
 }
-.add-to-team-btn {
-	width: 15vw;
+.add-to-team-btn, .remove-from-team-btn {
+	width: 19vw;
 
 }
 @media (min-width: 500px) {

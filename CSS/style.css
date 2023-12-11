@@ -24,13 +24,13 @@ body {
 	color: rgb(133, 63, 38);
 	font-weight: 600;
 }
-.header > p, .search-btn {
+.header > p, .search-btn, .my-team {
 	border: 2px solid rgb(156, 91, 31);
 	padding: 0.5em;
 	margin-top: 0.3em;
 	margin-bottom: 0.3em;
 }
-.search-btn.alt {
+.search-btn.alt, .my-team.alt {
 	box-shadow: inset 3px 3px 3px rgb(145, 85, 29);
 	color: rgb(151, 107, 65);
 }

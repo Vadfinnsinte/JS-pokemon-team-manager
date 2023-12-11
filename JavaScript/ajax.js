@@ -1,9 +1,10 @@
 import { teamList } from "./team.js"
+// import { MakeHTML } from "./search.js"
 let searchInput = document.querySelector(".search-bar")
 let searchBtn = document.querySelector(".search-btn")
 let displayPoke = document.querySelector(".display-poke")
 let pokemonList = []
-
+let createSearchPokeElement
 function collectAPI() {
 	searchBtn.addEventListener("click", async () => {
 	const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
@@ -55,15 +56,16 @@ searchInput.addEventListener("keyup", () => {
 
 	if (matchingPokemon) {
 		matchingPokemon.forEach(async element => {
-			let createSearchPokeElement = document.createElement("div")
+			 createSearchPokeElement = document.createElement("div")
 			createSearchPokeElement.classList.add("pokemon-search-div")
-			if(element.sprites){
-				createSearchPokeElement.innerHTML = `<h4>${element.name}</h4><img src="${element.sprites}"><button class = "add-to-team-btn">add</button> `
-				displayPoke.append(createSearchPokeElement)}
-			else if (!element.sprites){
-				createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <p>BILD SAKNAS</p><button class = "add-to-team-btn">add</button> `
-				displayPoke.append(createSearchPokeElement)
-				// console.log(element.name, element.sprites);
+				if(element.sprites){
+					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4><img src="${element.sprites}"><button class = "add-to-team-btn">add</button> `
+					displayPoke.append(createSearchPokeElement)}
+				else if (!element.sprites){
+					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <p>BILD SAKNAS</p><button class = "add-to-team-btn">add</button> `
+					displayPoke.append(createSearchPokeElement)
+					// console.log(element.name, element.sprites);
+				
 			}
 			let addToTeamBtn = createSearchPokeElement.querySelector(".add-to-team-btn")
 			addToTeamBtn.addEventListener("click", () => {
@@ -74,4 +76,4 @@ searchInput.addEventListener("keyup", () => {
 	}
 });}
 
-export {collectAPI, searchPokemonAndAdd}
+export {collectAPI, searchPokemonAndAdd, createSearchPokeElement}
