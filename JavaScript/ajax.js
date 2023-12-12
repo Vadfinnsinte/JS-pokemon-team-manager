@@ -1,18 +1,17 @@
-import { teamList } from "./team.js"
+import {  reserveList} from "./team.js"
+import { removeMyTeam } from "./script.js"
 // import { MakeHTML } from "./search.js"
 let searchInput = document.querySelector(".search-bar")
 let searchBtn = document.querySelector(".search-btn")
 let displayPoke = document.querySelector(".display-poke")
 let pokemonList = []
+let chosenpokemonList = []
+
 let createSearchPokeElement
 function collectAPI() {
 	searchBtn.addEventListener("click", async () => {
 	const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
-	// ${searchTerm}
-	searchInput.classList.toggle("alt")
-	searchInput.focus()
-	searchBtn.classList.toggle("alt")
-	displayPoke.classList.toggle("alt")
+	removeMyTeam()
 	try {
 		let response = await fetch(url)
 		let data = await response.json()
@@ -61,7 +60,7 @@ searchInput.addEventListener("keyup", () => {
 				if(element.sprites){
 					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4><img src="${element.sprites}"><button class = "add-to-team-btn">add</button> `
 					displayPoke.append(createSearchPokeElement)}
-				else if (!element.sprites){
+				else {
 					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <p>BILD SAKNAS</p><button class = "add-to-team-btn">add</button> `
 					displayPoke.append(createSearchPokeElement)
 					// console.log(element.name, element.sprites);
@@ -69,11 +68,12 @@ searchInput.addEventListener("keyup", () => {
 			}
 			let addToTeamBtn = createSearchPokeElement.querySelector(".add-to-team-btn")
 			addToTeamBtn.addEventListener("click", () => {
-				teamList.push(element)
-				console.log(teamList);
+				chosenpokemonList.push(element)
+				console.log(chosenpokemonList);
+			
 			})
 		});
 	}
 });}
 
-export {collectAPI, searchPokemonAndAdd, createSearchPokeElement}
+export {collectAPI, searchPokemonAndAdd, createSearchPokeElement, displayPoke, searchBtn, searchInput,chosenpokemonList}

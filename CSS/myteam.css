@@ -1,9 +1,20 @@
-.display-my-poke {
+.display-my-poke, .display-my-reseve-poke {
 	display: none;
 }
+.display-my-poke > * , .display-my-reseve-poke > * {
+	grid-template-columns: 1fr;
+}
 
-.display-my-poke.alt {
+
+.display-my-poke.alt, .display-my-reseve-poke.alt {
 	display: grid;
 	justify-content: center;
 }
 
+.display-my-poke.alt > h4, .display-my-reseve-poke.alt > h4 {
+	background: none;
+	background-color: rgb(243, 134, 33);
+	border: 2px solid rgb(102, 57, 41);
+	box-shadow: inset 2px 2px 7px rgb(36, 35, 35);
+	text-align: center;
+}
