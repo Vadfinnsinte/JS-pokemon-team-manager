@@ -33,7 +33,7 @@ searchBtn.addEventListener("click", async () => {
 					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4><img src="${element.sprites}"><button class = "add-to-team-btn">add</button> `
 					displayPoke.append(createSearchPokeElement)}
 				else {
-					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <p>BILD SAKNAS</p><button class = "add-to-team-btn">add</button> `
+					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"><button class = "add-to-team-btn">add</button> `
 					displayPoke.append(createSearchPokeElement)
 					// console.log(element.name, element.sprites);
 				

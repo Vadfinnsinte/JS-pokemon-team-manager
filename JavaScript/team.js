@@ -16,8 +16,8 @@ let btn = document.querySelector("#btn")
 	// reserveList = chosenpokemonList.slice(3)
 	
 	// }
-	let order = 1
 	myTeam.addEventListener("click",() => {
+		let order = 1
 	
 		removeSearchTeam()
 		
@@ -32,15 +32,16 @@ let btn = document.querySelector("#btn")
 			createTeamPokeElement.classList.add("pokemon-search-div")
 		
 				if(element.sprites){
-					createTeamPokeElement.innerHTML = `<p>${order}</p><h4>${element.name}<img class="img-edit" src=https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png></h4><img src="${element.sprites}"><button class = "remove-from-team-btn">remove</button> `
+					createTeamPokeElement.innerHTML = `<p>${order}</p><h4>${element.name}<img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4><img src="${element.sprites}"><button class = "remove-from-team-btn">remove</button> `
 					myPokes.append(createTeamPokeElement)}
 				else if (!element.sprites){
-					createTeamPokeElement.innerHTML = ` <h4>${element.name} <img class="img-edit" src=https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png></h4> <p>BILD SAKNAS</p><button class = "remove-from-team-btn">REMOVE</button> `
+					createTeamPokeElement.innerHTML = `<p>${order}</p> <h4>${element.name} <img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"><button class = "remove-from-team-btn">REMOVE</button> `
 					myPokes.append(createTeamPokeElement)
 				
 				}
 				order++
 		})
+		let orderReserve = 1
 			reserveList.forEach(element => {
 				let createTeamPokeElement
 				console.log("my Team 5");
@@ -48,14 +49,15 @@ let btn = document.querySelector("#btn")
 				createTeamPokeElement = document.createElement("div")
 				createTeamPokeElement.classList.add("pokemon-search-div")
 				if(element.sprites){
-					createTeamPokeElement.innerHTML = `<h4>${element.name} <img class="img-edit" src=https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png></h4><img src="${element.sprites}"><button class = "remove-from-team-btn">ADD</button> `
+					createTeamPokeElement.innerHTML = `<p>${orderReserve}</p><h4>${element.name} <img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4><img src="${element.sprites}"><button class = "remove-from-team-btn">ADD</button> `
 					reservePoke.append(createTeamPokeElement)}
 				else if (!element.sprites){
-					createTeamPokeElement.innerHTML = `<h4>${element.name}<img class="img-edit" src=https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png></h4> <p>BILD SAKNAS</p><button class = "remove-from-team-btn">ADD</button> `
+					createTeamPokeElement.innerHTML = `<p>${orderReserve}</p><h4>${element.name}<img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"><button class = "remove-from-team-btn">ADD</button> `
 						reservePoke.append(createTeamPokeElement)
 						
 						console.log(count);
 					}
+				orderReserve ++
 			})
 	
 })
