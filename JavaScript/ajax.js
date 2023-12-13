@@ -1,17 +1,8 @@
-import {  reserveList} from "./team.js"
-import { removeMyTeam } from "./script.js"
-// import { MakeHTML } from "./search.js"
-let searchInput = document.querySelector(".search-bar")
-let searchBtn = document.querySelector(".search-btn")
-let displayPoke = document.querySelector(".display-poke")
-let pokemonList = []
-let chosenpokemonList = []
-
-let createSearchPokeElement
-function collectAPI() {
-	searchBtn.addEventListener("click", async () => {
+let pokemonList
+async function  collectAPI() {
+	
 	const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
-	removeMyTeam()
+
 	try {
 		let response = await fetch(url)
 		let data = await response.json()
@@ -39,41 +30,12 @@ function collectAPI() {
 				  
 				  }
 				})
-			  );
+				);
+				console.log(pokemonList);
 			}
 		  } catch (error) {
 			console.log("Something went wrong:", error);
 		  }
-		});}
-		
-function searchPokemonAndAdd (){
-searchInput.addEventListener("keyup", () => {
-	let searchTerm = searchInput.value.toUpperCase()
-	let matchingPokemon = pokemonList.filter(pokemon => pokemon.name.includes(searchTerm));
-	console.log(matchingPokemon);
-	displayPoke.innerHTML = "" 
+		;}
 
-	if (matchingPokemon) {
-		matchingPokemon.forEach(async element => {
-			 createSearchPokeElement = document.createElement("div")
-			createSearchPokeElement.classList.add("pokemon-search-div")
-				if(element.sprites){
-					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4><img src="${element.sprites}"><button class = "add-to-team-btn">add</button> `
-					displayPoke.append(createSearchPokeElement)}
-				else {
-					createSearchPokeElement.innerHTML = `<h4>${element.name}</h4> <p>BILD SAKNAS</p><button class = "add-to-team-btn">add</button> `
-					displayPoke.append(createSearchPokeElement)
-					// console.log(element.name, element.sprites);
-				
-			}
-			let addToTeamBtn = createSearchPokeElement.querySelector(".add-to-team-btn")
-			addToTeamBtn.addEventListener("click", () => {
-				chosenpokemonList.push(element)
-				console.log(chosenpokemonList);
-			
-			})
-		});
-	}
-});}
-
-export {collectAPI, searchPokemonAndAdd, createSearchPokeElement, displayPoke, searchBtn, searchInput,chosenpokemonList}
+export {collectAPI, pokemonList}

@@ -10,9 +10,12 @@
 	display: grid;
 	justify-content: center;
 }
-
-.display-my-poke.alt > h4, .display-my-reseve-poke.alt > h4 {
-	background: none;
+.h-team, .h-team-reserve {
+	display: none;
+}
+.h-team.alt, .h-team-reserve.alt {
+	display: block;
+	/* background: none; */
 	background-color: rgb(243, 134, 33);
 	border: 2px solid rgb(102, 57, 41);
 	box-shadow: inset 2px 2px 7px rgb(36, 35, 35);
