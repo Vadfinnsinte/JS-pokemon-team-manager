@@ -18,6 +18,7 @@
 	margin: 0.5em;
 	padding: 1em;
 	background: url(/pokebackground.png);
+	border-radius: 2%;
 	box-shadow: 5px 6px 10px rgb(36, 35, 35);
 
 }

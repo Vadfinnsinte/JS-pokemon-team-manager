@@ -25,7 +25,7 @@ searchBtn.addEventListener("click", async () => {
 	console.log(matchingPokemon);
 	displayPoke.innerHTML = "" 
 
-	if (matchingPokemon) {
+
 		matchingPokemon.forEach(async element => {
 			 createSearchPokeElement = document.createElement("div")
 			createSearchPokeElement.classList.add("pokemon-search-div")
@@ -42,16 +42,16 @@ searchBtn.addEventListener("click", async () => {
 			addToTeamBtn.addEventListener("click", () => {
 				console.log("add to Team", count, element.name);;
 				if(count < 3){
-				teamList.push(element)
+				teamList.push({...element})
 				// console.log(teamList);
 				count++	}
 				else {
-					reserveList.push(element)
+					reserveList.push({...element})
 					// console.log(reserveList);
 				}
 			})
 		});
-	}
+	
 });
 // }
 

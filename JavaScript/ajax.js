@@ -13,16 +13,23 @@ async function  collectAPI() {
 					const pokeURL = pokemon.url;
 					let pokeResponse = await fetch(pokeURL);
 					let dataPoke = await pokeResponse.json();
+					
 					if (dataPoke.sprites.front_default) {
+						let abilities = dataPoke.abilities.map((ability) => ability.ability.name);
 					  return {
 						name: pokemon.name.toUpperCase(),
+						nickname: pokemon.name.toUpperCase(),
 						url: pokemon.url,
-						sprites: dataPoke.sprites.front_default
+						sprites: dataPoke.sprites.front_default,
+						ability: abilities
 					  };
 					} else {
+						let abilities = dataPoke.abilities.map((ability) => ability.ability.name);
 					  return {
 						name: pokemon.name.toUpperCase(),
+						nickname: pokemon.name.toUpperCase(),
 						url: pokemon.url,
+						ability: abilities
 					  };
 					}
 				  } catch (error) {
