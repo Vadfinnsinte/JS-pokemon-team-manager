@@ -5,7 +5,9 @@
 	margin: 1em;
 }
 .display-poke.alt > * {
-	max-width: 18.2em;
+	max-width: 14.2em;
+	min-height: 16em;
+	justify-content: center;
 }
 .display-poke.alt {
 	display: grid;

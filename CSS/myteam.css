@@ -11,6 +11,7 @@
 .display-my-poke.alt, .display-my-reseve-poke.alt {
 	display: grid;
 	justify-content: center;
+	
 }
 .h-team, .h-team-reserve {
 	display: none;
