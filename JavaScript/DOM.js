@@ -7,7 +7,7 @@ function createPokemonCard(savedReserved, reservePoke, orderReserve,element){
 	
 	createTeamPokeElement.innerHTML = createRenameHTMLString(element,orderReserve)
 	
-	orderReserve ++
+	// orderReserve ++
 	
 	reservePoke.append(createTeamPokeElement)
 	return createTeamPokeElement
@@ -25,10 +25,12 @@ function createRenameHTMLString(element, order){
 
 
 	return `
-		<p>${order}</p>
+	<p>${order}</p>
+		<button class="move-element-up"></button>
 		<input type="text" class="invisible change-name" >
 		<h4 class="pokemon-name"><span>${element.nickname}</span> <img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4>
 		<img src="${src}">
-		<button class = "remove-from-team-btn">remove</button> `
+		<button class = "remove-from-team-btn">Kicka</button>
+		<button class="move-element-down"></button>`
 }
 export {createPokemonCard, createRenameHTMLString}

@@ -30,6 +30,7 @@
 	align-items: center;
 	min-width: 13em;
 	max-width: 15em;
+	/* text-align: center; */
 }
 .pokemon-search-div > p {
 	margin-right: auto;

@@ -9,6 +9,7 @@ let searchInput = document.querySelector(".search-bar")
 let searchBtn = document.querySelector(".search-btn")
 let displayPoke = document.querySelector(".display-poke")
 let count = 0
+let countReserve = 0
 
 let createSearchPokeElement
 
@@ -38,16 +39,20 @@ searchBtn.addEventListener("click", async () => {
 					// console.log(element.name, element.sprites);
 				
 			}
+			
 			let addToTeamBtn = createSearchPokeElement.querySelector(".add-to-team-btn")
 			addToTeamBtn.addEventListener("click", () => {
-				console.log("add to Team", count, element.name);;
 				if(count < 3){
-				teamList.push({...element})
-				// console.log(teamList);
-				count++	}
+				teamList.push({...element, id: count})
+				
+				
+				count++	
+			}
 				else {
-					reserveList.push({...element})
-					// console.log(reserveList);
+					reserveList.push({...element, id: countReserve})
+					
+					countReserve++
+					
 				}
 			})
 		});

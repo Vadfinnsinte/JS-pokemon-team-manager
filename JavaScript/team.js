@@ -19,9 +19,76 @@ myTeam.addEventListener("click",() => {
 	
 	removeSearchTeam()
 	render()
-
+	
 	
 })
+
+
+function render(order, orderReserve) {
+	order = 1
+	orderReserve = 1
+	myPokes.innerHTML = ""
+	reservePoke.innerHTML = ""
+	
+	teamList.forEach((element) => { 
+		let createTeamPokeElement
+		// savedTeam.push(element)
+		createTeamPokeElement = document.createElement("div")
+		createTeamPokeElement.classList.add("pokemon-search-div")
+		
+		createTeamPokeElement.innerHTML = createRenameHTMLString(element,order)
+		myPokes.append(createTeamPokeElement)
+		
+		order++
+		let  renamePokemon = createTeamPokeElement.querySelector(".img-edit")
+		renamePokemon.addEventListener("click", () => {
+			renamePokemonFunction(createTeamPokeElement, element)
+		})
+		let removeButton = createTeamPokeElement.querySelector(".remove-from-team-btn")
+		removeButton.addEventListener("click", ()=>{
+			removeTeamPokemon(element, order)
+		})
+		let moveElementUpBtn = createTeamPokeElement.querySelector(".move-element-up")
+		let moveElementdownBtn = createTeamPokeElement.querySelector(".move-element-down")
+		
+		moveElementUpBtn.addEventListener("click",()=> {
+			console.log("klickat upp!");
+			moveElementUp(createTeamPokeElement,element)
+		})
+		moveElementdownBtn.addEventListener("click",()=> {
+			console.log("Klickat, ner!!");
+			moveElementDown(createTeamPokeElement,element
+			)
+		})
+		
+	})
+	
+	reserveList.forEach((reservePokemon) => {	
+		let createTeamPokeElement = createPokemonCard(savedReserved, reservePoke, orderReserve, reservePokemon);
+		
+		let  renamePokemon = createTeamPokeElement.querySelector(".img-edit")
+		renamePokemon.addEventListener("click", () => {
+			renamePokemonFunction(createTeamPokeElement, reservePokemon)
+		})
+		orderReserve++ 
+		let removeButton = createTeamPokeElement.querySelector(".remove-from-team-btn")
+		removeButton.addEventListener("click", ()=>{
+			removeReserveTeamPokemon( reservePokemon, orderReserve)
+		})
+		let moveElementUpBtn = createTeamPokeElement.querySelector(".move-element-up")
+		let moveElementdownBtn = createTeamPokeElement.querySelector(".move-element-down")
+		
+		moveElementUpBtn.addEventListener("click",()=> {
+			console.log("klickat upp!");
+			moveReserveElementUp(createTeamPokeElement, reservePokemon)
+		})
+		moveElementdownBtn.addEventListener("click",()=> {
+			console.log("Klickat, ner!!");
+			moveReserveElementDown(createTeamPokeElement, reservePokemon)
+		})
+	})
+}
+
 function renamePokemonFunction(createTeamPokeElement, element){
 	console.log("rename cklick");
 	let changeNameInput = createTeamPokeElement.querySelector(".change-name")
@@ -51,54 +118,54 @@ function removeReserveTeamPokemon(reservePokemon, orderReserve){
 	render(orderReserve)
 }
 
-function render(order, orderReserve) {
-	order = 1
-	orderReserve = 1
-	myPokes.innerHTML = ""
-	reservePoke.innerHTML = ""
-
-	teamList.forEach((element) => { 
-		let createTeamPokeElement
-		// savedTeam.push(element)
-		createTeamPokeElement = document.createElement("div")
-		createTeamPokeElement.classList.add("pokemon-search-div")
-		
-		createTeamPokeElement.innerHTML = createRenameHTMLString(element,order)
-		myPokes.append(createTeamPokeElement)
-	
-		order++
-		let  renamePokemon = createTeamPokeElement.querySelector(".img-edit")
-		renamePokemon.addEventListener("click", () => {
-		renamePokemonFunction(createTeamPokeElement, element)
-		})
-		let removeButton = createTeamPokeElement.querySelector(".remove-from-team-btn")
-		removeButton.addEventListener("click", ()=>{
-			removeTeamPokemon(element, order)
-		})
-		
-	})
-	
-
-
-	reserveList.forEach((reservePokemon) => {	
-		let createTeamPokeElement = createPokemonCard(savedReserved, reservePoke, orderReserve, reservePokemon);
-		
-		let  renamePokemon = createTeamPokeElement.querySelector(".img-edit")
-		renamePokemon.addEventListener("click", () => {
-		renamePokemonFunction(createTeamPokeElement, reservePokemon)
-		})
-		orderReserve++ 
-		let removeButton = createTeamPokeElement.querySelector(".remove-from-team-btn")
-		removeButton.addEventListener("click", ()=>{
-			removeReserveTeamPokemon( reservePokemon, orderReserve)
-		})
-	})
+function moveElementUp(HTMLelement, element) {
+    const previousElement = HTMLelement.previousElementSibling;
+    if (previousElement) {
+        HTMLelement.parentNode.insertBefore(HTMLelement, previousElement);
+        const currentIndex = teamList.indexOf(element);
+        const previousIndex = teamList.indexOf(previousElement.id);
+        teamList.splice(currentIndex, 1);
+        teamList.splice(previousIndex, 0, element);
+        render();
+    }
 }
+
+function moveElementDown(HTMLelement, element) {
+    const nextElement = HTMLelement.nextElementSibling;
+    if (nextElement) {
+        HTMLelement.parentNode.insertBefore(nextElement, HTMLelement);
+        const currentIndex = teamList.indexOf(element);
+        const nextIndex = teamList.indexOf(nextElement.id);
+        teamList.splice(nextIndex, 0, element);
+        teamList.splice(currentIndex, 1);
+        render();
+    }
+}
+function moveReserveElementUp(HTMLelement, reservePokemon) {
+    const previousElement = HTMLelement.previousElementSibling;
+    if (previousElement) {
+        HTMLelement.parentNode.insertBefore(HTMLelement, previousElement);
+        const currentIndex = reserveList.indexOf(reservePokemon);
+        const previousIndex = reserveList.indexOf(previousElement.id);
+        reserveList.splice(currentIndex, 1);
+        reserveList.splice(previousIndex, 0, reservePokemon);
+        render();
+    }
+}
+
+function moveReserveElementDown(HTMLelement, reservePokemon) {
+    const nextElement = HTMLelement.nextElementSibling;
+    if (nextElement) {
+		HTMLelement.parentNode.insertBefore(nextElement, HTMLelement);
+        const currentIndex = reserveList.indexOf(reservePokemon);
+        const nextIndex = reserveList.indexOf(nextElement.id);
+        reserveList.splice(nextIndex, 0, reservePokemon);
+        reserveList.splice(currentIndex, 1);
+        render();
+    }
+}
+
+
+
 export { myPokes, myTeam, reservePoke,reserveList, chosenpokemonList, teamList}
 
-
-// let a = 'dnfjdnkfndkfndjf'
-// let b
-// if( element.sprites ) { b = '<img .../>' }
-// let c = 'jyhftgrgdrgrd'
-// innerHTML = a + b + c

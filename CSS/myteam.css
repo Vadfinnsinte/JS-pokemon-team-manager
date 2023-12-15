@@ -5,7 +5,7 @@
 	grid-template-columns: 1fr;
 }
 .pokemon-search-div > h4 {
-	margin-top: 0;
+	margin-top: 1em;
 }
 
 .display-my-poke.alt, .display-my-reseve-poke.alt {
@@ -29,7 +29,33 @@
 	background: none;
 	width: 16px;
 	margin-left: 0.3em;
-	
+}
+
+.move-element-up, .move-element-down {
+	background: none;
+	border: 0;
+ } 
+.move-element-up:hover, .move-element-down:hover {
+	background: none;
+	border: 0;
+ } 
+.move-element-up {
+	margin-top: -3em;
+	margin-right: 10.5em;
+ }
+.move-element-down {
+	margin-right: 10.5em;
+ }
+.move-element-up::before {
+	content: "↑";
+	font-size: 20px;
+	font-weight: bolder;
+ }
+  
+.move-element-down::before {
+	content: "↓";
+	font-size: 20px;
+	font-weight: bold;
 }
 .invisible {
 	display: none;
