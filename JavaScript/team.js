@@ -142,8 +142,9 @@ function removeTeamPokemon(element, order){
 	else {
 		let moveToReserve = teamList.splice(indexToRemove, 1)[0]
 		reserveList.push(moveToReserve)
+		let reservePromotion = reserveList.shift()
+		teamList.push(reservePromotion)
 		render(order)
-
 	}
 	// howManyInTeamDiv.classList.remove("alt")
 	// howManyInTeam()
