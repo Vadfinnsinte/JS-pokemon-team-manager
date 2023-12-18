@@ -15,7 +15,7 @@ async function  collectAPI() {
 					let dataPoke = await pokeResponse.json();
 					
 					if (dataPoke.sprites.front_default) {
-						let abilities = dataPoke.abilities.map((ability) => ability.ability.name);
+						let abilities = dataPoke.abilities.map((ability) => ability.ability.name.toUpperCase());
 					  return {
 						name: pokemon.name.toUpperCase(),
 						nickname: pokemon.name.toUpperCase(),
@@ -24,7 +24,7 @@ async function  collectAPI() {
 						ability: abilities
 					  };
 					} else {
-						let abilities = dataPoke.abilities.map((ability) => ability.ability.name);
+						let abilities = dataPoke.abilities.map((ability) => ability.ability.name.toUpperCase());
 					  return {
 						name: pokemon.name.toUpperCase(),
 						nickname: pokemon.name.toUpperCase(),

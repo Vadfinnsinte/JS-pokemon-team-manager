@@ -1,10 +1,11 @@
 // import {MakeHTML} from "./search.js"
 import { displayPoke, searchBtn, searchInput} from "./search.js"
-import { removeSearchTeam, removeMyTeam } from "./script.js"
-import { createPokemonCard, createRenameHTMLString } from "./DOM.js"
+import { removeSearchTeam, removeMyTeam, startContent } from "./script.js"
+import { createPokemonCard, createRenameHTMLString,pTaggHowManyPokeInTeam } from "./DOM.js"
 let myTeam = document.querySelector(".my-team")
 let myPokes = document.querySelector(".display-my-poke")
 let reservePoke = document.querySelector(".display-my-reseve-poke")
+let howManyInTeamDiv = document.querySelector(".how-many-in-team")
 let chosenpokemonList = []
 let teamList = []
 let reserveList = []
@@ -12,14 +13,14 @@ let savedReserved = []
 let savedTeam = []
 let btn = document.querySelector("#btn")
 
-
+howManyInTeam()
 
 myTeam.addEventListener("click",() => {
 	
 	
 	removeSearchTeam()
 	render()
-	
+	howManyInTeam(teamList)
 	
 })
 
@@ -30,6 +31,8 @@ function render(order, orderReserve) {
 	myPokes.innerHTML = ""
 	reservePoke.innerHTML = ""
 	
+
+
 	teamList.forEach((element) => { 
 		let createTeamPokeElement
 		// savedTeam.push(element)
@@ -88,7 +91,24 @@ function render(order, orderReserve) {
 		})
 	})
 }
-
+function howManyInTeam() {
+	if (!teamList.length){
+		let antalIteam = "Du behöver 3 till medlemmar i Teamet."
+		pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv)
+	}
+	else if (teamList.length === 1){
+		let antalIteam = "Du behöver 2 till medlemmar i Teamet."
+		pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv)
+	}
+	else if (teamList.length === 2){
+		let antalIteam = "Du behöver 1 till medlem i Teamet."
+		pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv)
+	}
+	else {
+		howManyInTeamDiv.classList.add("alt")
+	}
+	
+	}
 function renamePokemonFunction(createTeamPokeElement, element){
 	console.log("rename cklick");
 	let changeNameInput = createTeamPokeElement.querySelector(".change-name")
@@ -167,5 +187,5 @@ function moveReserveElementDown(HTMLelement, reservePokemon) {
 
 
 
-export { myPokes, myTeam, reservePoke,reserveList, chosenpokemonList, teamList}
+export { myPokes, myTeam, reservePoke,reserveList, chosenpokemonList, teamList, howManyInTeam}
 

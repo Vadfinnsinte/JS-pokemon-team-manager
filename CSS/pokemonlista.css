@@ -32,7 +32,7 @@
 	max-width: 15em;
 	/* text-align: center; */
 }
-.pokemon-search-div > p {
+.orderCard {
 	margin-right: auto;
 	margin-top: 0;
 	
@@ -45,6 +45,7 @@ img {
 	background: url(/picturebackground-2.png);
 	border-radius: 10%;
 	width: 110px;
+	margin-bottom: 0.5em;
 
 
 }
@@ -59,13 +60,15 @@ button{
 	width: 19vw;
 
 }
+
+.ability {
+	/* text-align: end; */
+	margin: 0.1em;
+}
 @media (min-width: 520px) {
 	.display-poke, .display-my-poke, .display-my-reseve-poke {
 		grid-template-columns: repeat(2, 1fr);
 	}
-
-
-
 }
 @media (min-width: 720px) {
 	.display-poke, .display-my-poke, .display-my-reseve-poke {

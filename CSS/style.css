@@ -43,7 +43,7 @@ body {
 	position: absolute;
 	width: 70px; 
 	margin: 0;
-	top: 7vh
+	top: 6.5vh
 }
 .add-to-team-btn, .remove-from-team-btn {
 	background-color: rgb(240, 212, 54);
@@ -55,7 +55,29 @@ body {
 .remove-from-team-btn:hover,.add-to-team-btn:hover {
 	box-shadow: inset 3px 3px 3px rgb(145, 85, 29)
 }
-
+.how-many-in-team{
+	text-align: center;
+	
+} 
+.how-many-in-team.alt{
+	display: none;
+} 
+.welcome-section {
+	text-align: center;
+}
+.welcome-section h1 {
+	font-family: 'Luckiest Guy', cursive;
+	letter-spacing: 2.5px;
+	
+}
+.ash, .misty {
+	background: none;
+	margin-top: 2em;
+}
+.misty {
+	max-height: 220px;
+	
+}
 @media (max-width: 400px){
 	.pokeboll-img{
 		width: 60px;
