@@ -1,9 +1,7 @@
 
 
-function createPokemonCard(savedReserved, reservePoke, orderReserve,element){
+function createPokemonCard(reservePoke, orderReserve,element){
 	let createTeamPokeElement
-	console.log("my Team 5");
-	savedReserved.push(element)
 	createTeamPokeElement = document.createElement("div")
 	createTeamPokeElement.classList.add("pokemon-search-div")
 	
@@ -27,16 +25,19 @@ function createRenameHTMLString(element, order){
 
 
 	return `
+	<div class= "pilOrder">
+	<button class="move-element-up"></button>
 	<p class= "orderCard">${order}</p>
-		<button class="move-element-up"></button>
-		<input type="text" class="invisible change-name" >
-		<h4 class="pokemon-name"><span>${element.nickname}</span> <img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4>
-		<img src="${src}">
-		<div class="ability-container" >
-		<p class="ability" >Abilities: ${abilitiesHtml}<p/>
-		</div>
-		<button class = "remove-from-team-btn">Kicka</button>
-		<button class="move-element-down"></button>`
+	<button class="move-element-down"></button>
+	</div>
+	<input type="text" class="invisible change-name" >
+	<h4 class="pokemon-name"><span>${element.nickname}</span> <img class="img-edit" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Pencil-icon.png"></h4>
+	<img src="${src}">
+	<div class="ability-container" >
+	<p class="ability" >Abilities: ${abilitiesHtml}<p/>
+	</div>
+	<button class = "remove-from-team-btn">Kicka</button>
+		`
 }
 
 function pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv){
