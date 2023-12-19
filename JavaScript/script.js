@@ -31,7 +31,6 @@ function removeSearchTeam(){
 
 function backToStart() {
 	searchInput.classList.remove("alt")
-	// searchInput.focus()
 	searchBtn.classList.remove("alt")
 	displayPoke.classList.remove("alt")
 	myPokes.classList.remove("alt")

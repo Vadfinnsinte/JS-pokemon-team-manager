@@ -5,7 +5,6 @@ import {  reserveList, teamList, howManyInTeam} from "./team.js"
 import { removeMyTeam } from "./script.js"
 import { creatorsTips } from "./CreatorPoke.js";
 
-// import { MakeHTML } from "./search.js"
 let searchInput = document.querySelector(".search-bar")
 let searchBtn = document.querySelector(".search-btn")
 let displayPoke = document.querySelector(".display-poke")
@@ -80,7 +79,7 @@ searchInput.addEventListener("keyup", ()  => {
 		createSearchPokeElement = document.createElement("div")
 		createSearchPokeElement.classList.add("pokemon-search-div")
 		let abilitiesHtml = element.ability.map(ability => `<p class="ability">${ability}</p>`).join('');
-		// if(element.sprites){
+		
 			createSearchPokeElement.innerHTML = `<h4>${element.name}</h4>
 			<img src="${src}">
 			<div class="ability-container" >

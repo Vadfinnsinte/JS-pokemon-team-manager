@@ -35,8 +35,7 @@
 
 }
 .display-my-poke > *, .display-my-reseve-poke > * {
-	/* min-width: 13em;
-	max-width: 16em; */
+
 	height: 26em;
 }
 .pilOrder {
@@ -61,8 +60,6 @@ button{
 	max-height: 1.5em;
 	max-width: 7em;
 	margin-top: 1em;
-	text-decoration: none;
-	/* color: rgb(133, 63, 38) */
 	
 }
 .add-to-team-btn, .remove-from-team-btn {
@@ -78,7 +75,7 @@ button{
 }
 
 .ability {
-	/* text-align: end; */
+
 	margin: 0.4em;
 }
 

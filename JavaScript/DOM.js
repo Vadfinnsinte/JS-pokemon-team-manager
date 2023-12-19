@@ -7,8 +7,6 @@ function createPokemonCard(reservePoke, orderReserve,element){
 	
 	createTeamPokeElement.innerHTML = createRenameHTMLString(element,orderReserve)
 	
-	// orderReserve ++
-	
 	reservePoke.append(createTeamPokeElement)
 	return createTeamPokeElement
 }
