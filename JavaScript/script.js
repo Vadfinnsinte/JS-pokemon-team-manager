@@ -6,7 +6,7 @@ let startContent = document.querySelector(".welcome-section")
 let pokebollStart = document.querySelector(".pokeboll-img")
 function removeMyTeam(){
 	searchInput.classList.add("alt")
-	// searchInput.focus()
+	searchInput.focus()
 	searchBtn.classList.add("alt")
 	displayPoke.classList.add("alt")
 	myPokes.classList.remove("alt")

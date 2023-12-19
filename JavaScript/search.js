@@ -21,7 +21,7 @@ let alreadyCreated = 0
 searchBtn.addEventListener("click", async () => {
 	removeMyTeam()
 	headerCreator.classList.add("alt")
-	console.log("Klickat MyTeam")
+	
 	creatorsTips.forEach(async element => {
 		if (alreadyCreated < 8){
 		let src 
@@ -63,10 +63,9 @@ searchBtn.addEventListener("click", async () => {
 	})
 
 searchInput.addEventListener("keyup", ()  => {
-	// console.log(pokemonList);
+	
 	let searchTerm = searchInput.value.toUpperCase()
 	let matchingPokemon = pokemonList.filter(pokemon => pokemon.name.includes(searchTerm)||pokemon.types.some(type => type.includes(searchTerm)));
-	console.log(matchingPokemon);
 	displayPoke.innerHTML = "" 
 	headerCreator.classList.remove("alt")
 	matchingPokemon.forEach(async element => {

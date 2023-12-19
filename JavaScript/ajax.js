@@ -42,7 +42,7 @@ async function  collectAPI() {
 				  }
 				})
 				);
-				console.log(pokemonList);
+			
 			}
 		  } catch (error) {
 			console.log("Something went wrong:", error);

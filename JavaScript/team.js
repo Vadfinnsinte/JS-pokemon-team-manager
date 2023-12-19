@@ -55,11 +55,11 @@ function render(order, orderReserve) {
 		let moveElementdownBtn = createTeamPokeElement.querySelector(".move-element-down")
 		
 		moveElementUpBtn.addEventListener("click",()=> {
-			console.log("klickat upp!");
+			
 			moveElementUp(createTeamPokeElement,element)
 		})
 		moveElementdownBtn.addEventListener("click",()=> {
-			console.log("Klickat, ner!!");
+			
 			moveElementDown(createTeamPokeElement,element
 			)
 		})
@@ -82,11 +82,9 @@ function render(order, orderReserve) {
 		let moveElementdownBtn = createTeamPokeElement.querySelector(".move-element-down")
 		
 		moveElementUpBtn.addEventListener("click",()=> {
-			console.log("klickat upp!");
 			moveReserveElementUp(createTeamPokeElement, reservePokemon)
 		})
 		moveElementdownBtn.addEventListener("click",()=> {
-			console.log("Klickat, ner!!");
 			moveReserveElementDown(createTeamPokeElement, reservePokemon)
 		})
 	})
@@ -169,7 +167,7 @@ function removeReserveTeamPokemon(reservePokemon, orderReserve){
 function moveElementUp(HTMLelement, element) {
 	const currentIndex = teamList.indexOf(element);
     const previousIndex = currentIndex - 1;
-
+	if(previousIndex >= 0){
     if (previousIndex < teamList.length) {
         HTMLelement.parentNode.insertBefore(HTMLelement.previousElementSibling, HTMLelement);
 
@@ -177,6 +175,7 @@ function moveElementUp(HTMLelement, element) {
 
         render();
     }
+}
 }
 
 function moveElementDown(HTMLelement, element) {
@@ -194,7 +193,7 @@ function moveElementDown(HTMLelement, element) {
 function moveReserveElementUp(HTMLelement, reservePokemon) {
 	const currentIndex = reserveList.indexOf(reservePokemon);
     const previousIndex = currentIndex - 1;
-
+	if(previousIndex >= 0){
     if (previousIndex < reserveList.length) {
         HTMLelement.parentNode.insertBefore(HTMLelement.previousElementSibling, HTMLelement);
 
@@ -202,6 +201,7 @@ function moveReserveElementUp(HTMLelement, reservePokemon) {
 
         render();
     }
+}
 }
 
 function moveReserveElementDown(HTMLelement, reservePokemon) {
