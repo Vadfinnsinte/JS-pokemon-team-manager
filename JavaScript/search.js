@@ -19,9 +19,11 @@ let alreadyCreated = 0
 
 searchBtn.addEventListener("click", async () => {
 	removeMyTeam()
-	headerCreator.classList.add("alt")
-	
 	creatorsTips.forEach(async element => {
+		if(searchInput.value.trim() === ""){
+		headerCreator.classList.add("alt")
+		}
+		
 		if (alreadyCreated < 8){
 		let src 
 		if (element.sprites) {
