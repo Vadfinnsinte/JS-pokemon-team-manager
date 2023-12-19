@@ -1,5 +1,5 @@
 // import {MakeHTML} from "./search.js"
-import { displayPoke, searchBtn, searchInput} from "./search.js"
+import { displayPoke, searchBtn, searchInput, headerCreator} from "./search.js"
 import { removeSearchTeam, removeMyTeam, startContent } from "./script.js"
 import { createPokemonCard, createRenameHTMLString,pTaggHowManyPokeInTeam } from "./DOM.js"
 let myTeam = document.querySelector(".my-team")
@@ -15,7 +15,7 @@ howManyInTeam()
 
 myTeam.addEventListener("click",() => {
 	
-	
+	headerCreator.classList.remove("alt")
 	removeSearchTeam()
 	render()
 
@@ -119,13 +119,22 @@ function renamePokemonFunction(createTeamPokeElement, element){
 	changeNameInput.classList.remove("invisible")
 	pokemonNameHead.classList.add("invisible")
 	changeNameInput.focus()
-	changeNameInput.addEventListener("blur", () => {
-		pokemonName.innerText = changeNameInput.value
-		element.nickname = changeNameInput.value
-		changeNameInput.classList.add("invisible")
-		pokemonNameHead.classList.remove("invisible")
+	changeNameInput.addEventListener("blur", (event) => {
+		updateNickname(pokemonName, changeNameInput, pokemonNameHead, element)
+	})
+	changeNameInput.addEventListener("keypress", (event) => {
+		if(event.key ==="Enter"){
+		updateNickname(pokemonName, changeNameInput, pokemonNameHead, element)
+	}
 	})
 }
+function updateNickname(pokemonName, changeNameInput, pokemonNameHead, element) {
+    pokemonName.innerText = changeNameInput.value;
+    element.nickname = changeNameInput.value;
+    changeNameInput.classList.add("invisible");
+    pokemonNameHead.classList.remove("invisible");
+}
+
 function removeTeamPokemon(element, order){
 	let indexToRemove = teamList.indexOf(element)
 

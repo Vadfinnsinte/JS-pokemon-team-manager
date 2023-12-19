@@ -9,9 +9,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 .search-bar {
-	margin: 2em 0 0 1em;
+	margin: 2em 0 0 2em;
 	padding: 0.2em;
 	visibility: hidden;
+	width: 20em;
 }
 .search-bar.alt {
 	visibility: visible;
@@ -37,7 +38,9 @@ body {
 	color: rgb(151, 107, 65);
 }
 
-
+.search-btn:hover, .my-team:hover {
+	box-shadow: inset 3px 3px 3px rgb(145, 85, 29)
+}
 .pokeboll-img {
 	background: none;
 	position: absolute;
@@ -55,9 +58,16 @@ body {
 .remove-from-team-btn:hover,.add-to-team-btn:hover {
 	box-shadow: inset 3px 3px 3px rgb(145, 85, 29)
 }
+.h-creator {
+	display: none;
+	text-align: center;
+}
+.h-creator.alt{
+	display: block;
+}
 .how-many-in-team{
 	text-align: center;
-	
+
 } 
 .how-many-in-team.alt{
 	display: none;

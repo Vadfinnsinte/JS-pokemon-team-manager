@@ -32,9 +32,13 @@
 	align-items: center;
 	min-width: 13em;
 	max-width: 16em;
-	height: 25em;
+	height: 22em;
 
-	/* text-align: center; */
+}
+.display-my-poke > *, .display-my-reseve-poke > * {
+	/* min-width: 13em;
+	max-width: 16em; */
+	height: 25em;
 }
 .pilOrder {
 	display: flex;
@@ -90,6 +94,7 @@ button{
 @media (min-width: 1100px) {
 	.display-poke, .display-my-poke, .display-my-reseve-poke {
 		grid-template-columns: repeat(4, 1fr);
+		
 	}
 }
 @media (min-width: 1500px) {

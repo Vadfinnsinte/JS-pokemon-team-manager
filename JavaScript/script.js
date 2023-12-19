@@ -3,9 +3,10 @@ import { myPokes,myTeam,reservePoke,howManyInTeam } from "./team.js"
 let hTeam = document.querySelector(".h-team")
 let hTeamReserve = document.querySelector(".h-team-reserve")
 let startContent = document.querySelector(".welcome-section")
+let pokebollStart = document.querySelector(".pokeboll-img")
 function removeMyTeam(){
 	searchInput.classList.add("alt")
-	searchInput.focus()
+	// searchInput.focus()
 	searchBtn.classList.add("alt")
 	displayPoke.classList.add("alt")
 	myPokes.classList.remove("alt")
@@ -27,6 +28,22 @@ function removeSearchTeam(){
 	hTeamReserve.classList.add("alt")
 	startContent.classList.add("invisible")
 }
+
+function backToStart() {
+	searchInput.classList.remove("alt")
+	// searchInput.focus()
+	searchBtn.classList.remove("alt")
+	displayPoke.classList.remove("alt")
+	myPokes.classList.remove("alt")
+	myTeam.classList.remove("alt")
+	reservePoke.classList.remove("alt")
+	hTeam.classList.remove("alt")
+	hTeamReserve.classList.remove("alt")
+	startContent.classList.remove("invisible")
+}
+pokebollStart.addEventListener("click", () => {
+	backToStart()
+})
 
 
 export {removeSearchTeam, removeMyTeam, startContent}
