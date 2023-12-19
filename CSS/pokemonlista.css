@@ -19,7 +19,7 @@
 	border: 2px solid rgba(155, 74, 8, 0.63);
 	margin: 0.5em;
 	padding: 1em;
-	background: url(../pokebackground.png);
+	background: url(pokebackground.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 2%;
