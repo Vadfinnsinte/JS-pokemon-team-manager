@@ -19,7 +19,7 @@
 	border: 2px solid rgba(155, 74, 8, 0.63);
 	margin: 0.5em;
 	padding: 1em;
-	background: url(pokebackground.png);
+	background: url(../pokebackground.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 2%;
@@ -81,12 +81,12 @@ button{
 	margin: 0.4em;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 560px) {
 	.display-poke, .display-my-poke, .display-my-reseve-poke {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
-@media (min-width: 720px) {
+@media (min-width: 840px) {
 	.display-poke, .display-my-poke, .display-my-reseve-poke {
 		grid-template-columns: repeat(3, 1fr);
 	}
