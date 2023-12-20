@@ -105,7 +105,8 @@ function howManyInTeam() {
 		pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv)
 	}
 	else {
-		howManyInTeamDiv.classList.add("alt")
+		let antalIteam = "Ditt team är komplett, men du kan forsätta lägga till i reserver."
+		pTaggHowManyPokeInTeam(antalIteam, howManyInTeamDiv)
 	}
 	
 	}
@@ -135,9 +136,10 @@ function updateNickname(pokemonName, changeNameInput, pokemonNameHead, element) 
 
 function removeTeamPokemon(element, order){
 	let indexToRemove = teamList.indexOf(element)
-
 	
+
 	if(reserveList.length === 0){
+		if (!document.querySelector('.varning')) {
 		let pleaseAddToReserve = document.createElement("p")
 		pleaseAddToReserve.classList.add("varning")
 		pleaseAddToReserve.innerText = "Vänligen lägg till Reserver innan du kickar en Pokemon!"
@@ -145,6 +147,7 @@ function removeTeamPokemon(element, order){
 		setTimeout(() => {
             pleaseAddToReserve.remove();
         }, 3000);
+	}
 	}
 	else {
 		let moveToReserve = teamList.splice(indexToRemove, 1)[0]
